@@ -51,9 +51,15 @@ class AdjacencyList:
 
     def bfs(self, start, end):
         explored = []
+        searching = []
         queue = [start]
-
         
+        searchDepth = 0
+        while len(queue) > 0:
+            searching = queue
+            queue = []
+
+
 
 instructions = [
     "? - Read Instructions Again",
