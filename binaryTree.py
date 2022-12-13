@@ -145,8 +145,11 @@ class BinaryTree:
                 target = target.right
 
     def random(self, nodeCount):
+        if self.root is None:
+            self.addNode(BinaryTreeNode("50"))
+
         for _ in range(nodeCount):
-            nodeValue = random.randint(0, 99)
+            nodeValue = random.randint(0, 100)
             self.addNode(BinaryTreeNode(str(nodeValue)))
 
     
