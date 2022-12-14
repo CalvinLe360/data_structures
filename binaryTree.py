@@ -152,6 +152,30 @@ class BinaryTree:
             nodeValue = random.randint(0, 100)
             self.addNode(BinaryTreeNode(str(nodeValue)))
 
+    def inorder(self, node: BinaryTreeNode):
+        if node is None:
+            return
+
+        self.inorder(node.left)
+        print(node.data, end= " -> ")
+        self.inorder(node.right)
+
+    def preorder(self, node: BinaryTreeNode):
+        if node is None:
+            return
+
+        print(node.data, end= " -> ")
+        self.preorder(node.left)
+        self.preorder(node.right)
+
+    def postorder(self, node: BinaryTreeNode):
+        if node is None:
+            return
+
+        self.postorder(node.left)
+        self.postorder(node.right)
+        print(node.data, end= " -> ")
+
     
 
 instructions = [
@@ -161,6 +185,9 @@ instructions = [
     "search x - Finds a node int the binary tree",
     "random x - Adds this many nodes of random values to the tree",
     "print - Prints the entire linked list",
+    "inorder - Prints elements inorder",
+    "preorder - Prints elements preorder",
+    "postorder - Prints elements postorder",
     "quit - Closes the program",
 ]
 
@@ -178,6 +205,15 @@ def main():
                 print(i)
         elif userInput[0] == "print":
             binaryTree.printTree()
+        elif userInput[0] == "inorder":
+            binaryTree.inorder(binaryTree.root)
+            print()
+        elif userInput[0] == "preorder":
+            binaryTree.preorder(binaryTree.root)
+            print()
+        elif userInput[0] == "postorder":
+            binaryTree.postorder(binaryTree.root)
+            print()
         elif userInput[0] == "quit":
             exit(0)
         elif len(userInput) > 1:
